@@ -423,12 +423,7 @@ rtl_time_estimate_s RtlDirect::calc_rtl_time_estimate()
 
 	_rtl_time_estimator.reset();
 
-	if (_vehicle_status_sub.get().is_vtol) {
-		_rtl_time_estimator.setVehicleType(vehicle_status_s::VEHICLE_TYPE_FIXED_WING);
-
-	} else {
-		_rtl_time_estimator.setVehicleType(_vehicle_status_sub.get().vehicle_type);
-	}
+	_rtl_time_estimator.setVehicleType(_vehicle_status_sub.get().vehicle_type);
 
 	RTLState start_state_for_estimate;
 
