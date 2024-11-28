@@ -721,9 +721,9 @@ ControlAllocator::check_for_motor_failures()
 
 	if ((FailureMode)_param_ca_failure_mode.get() > FailureMode::IGNORE
 	    && _failure_detector_status_sub.update(&failure_detector_status)) {
-		if (failure_detector_status.fd_motor) {
+		if (failure_detector_status.fd_roll) {
 
-			if (_handled_motor_failure_bitmask != failure_detector_status.motor_failure_mask) {
+			if (failure_detector_status.fd_roll) {
 				// motor failure bitmask changed
 				switch ((FailureMode)_param_ca_failure_mode.get()) {
 				case FailureMode::REMOVE_FIRST_FAILING_MOTOR: {
